@@ -1,0 +1,53 @@
+ip
+
+
+
+
+--------------------------------------------
+link
+--------------------------------------------
+ip link set <dev> up/down
+
+set <dev> mtu xxx
+
+更改网卡代号 Mac 地址需要先关闭网卡
+set <dev> name <newname>
+
+set <interface> address <new_mac_address>
+
+
+添加虚拟接口
+add <interface> type <type> [options] 
+
+
+删除接口
+delete <interface> 
+
+
+
+
+
+--------------------------------------------
+addr
+--------------------------------------------
+ip addr add <ip_address>/<prefix_length> dev <interface>
+
+ip addr add <ip_address>/<prefix_length> dev <interface>
+
+
+
+
+
+
+
+--------------------------------------------
+route
+--------------------------------------------
+
+
+route add default via <gateway>
+
+
+route add <network>/<prefix_length> via gateway
+
+route del

@@ -1,0 +1,96 @@
+git checkout --<file> 恢复
+
+-------------------------------------------------
+workspace
+-------------------------------------------------
+diff
+与索引区做对比
+
+
+
+diff <commit or branck>
+与版本库做对比
+
+
+reset --hard
+恢复工作区暂存区为当前分支默认最新 commit
+会恢复工作区及暂存区删除及修改的文件
+删除暂存区新增的文件
+但会不删除工作区新增的文件
+
+
+reset --hard <remote>/<branch>
+switch <branch>
+
+checkout -b <name of new branch>
+会在当前所处的 commit 上创建一个新的分支
+
+master  commit1 -> commit2 -> commit3 -> .....
+                      new_branch |_> commit -> .....
+
+
+
+switch 
+version >= 2.23
+
+checkout <branch name>
+切换分支
+
+-------------------------------------------------
+index
+-------------------------------------------------
+add -u
+just update
+更新已追踪文件的修改
+不会处理新添加文件
+
+rm
+
+mv
+
+
+checkout <files> or <dir>
+还原撤销修改
+
+-------------------------------------------------
+-------------------------------------------------
+
+
+
+
+
+
+
+-------------------------------------------------
+git diff branch
+-------------------------------------------------
+jackson@A003714-NB1:~/workspace/study/git/createrep$ git diff master
+diff --git a/a.c b/a.c
+new file mode 100644
+index 0000000..e69de29
+diff --git a/main.c b/main.c
+index 885b039..67bc18a 100644
+--- a/main.c
++++ b/main.c
+@@ -1,5 +1,6 @@
++#include <stdio.h>
+ int main(int argc, char *argv[])
+ {
+-
++    printf("hello world\n");
+     return 0;
+ }
+
+diff --git a/file_path b/file_path：表示两个文件的路径。
+index <old_commit>..<new_commit> <mode>：表示文件在两个分支上的版本范围和文件模式。
+<old_commit> 是当前分支的提交哈希值或标识符。
+<new_commit> 是指定分支的提交哈希值或标识符。
+<mode> 是文件的模式（例如，100644 表示普通文件）。
+--- a/file_path 和 +++ b/file_path：表示两个文件的起始标记。
+--- 后面的 a/file_path 表示当前分支的文件路径。
++++ 后面的 b/file_path 表示指定分支的文件路径。
+@@ -x,y +z @@：表示差异块的位置信息。
+-x,y 表示当前分支文件中的更改行围。
++z 表示指定分支文件中的更改行范围。
+
+以 - 开头的行表示当前分支文件中的删除行，以 + 开头的行表示指定分支文件中的添加行。

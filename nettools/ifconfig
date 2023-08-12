@@ -1,0 +1,12 @@
+ifconfig
+
+
+ifconfig <interface>
+
+
+sudo ifconfig <interface> down/up
+
+sudo ifconfig <interface> xxx.xxx.xxx.xxx netmask xxx.xxx.xxx.xxx
+sudo ifconfig <interface> hw ether xx:xx:xx::...
+
+

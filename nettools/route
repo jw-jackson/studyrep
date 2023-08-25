@@ -1,10 +1,12 @@
 route
 
+查看路由表
+route
 -n numberic
-
 
 add -host xxx.xxx.xxx.xxx gw xxx.xxx.xxx.xxx
 add -net xxx.xxx.xxx.xxx/ gw xxx.xxx.xxx.xxx
+add -net xxx.xxx.xxx.xxx netmask gw xxx.xxx.xxx.xxx
 
 
 del 

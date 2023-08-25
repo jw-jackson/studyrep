@@ -1,0 +1,60 @@
+Dockerfile是用于定义Docker镜像构建过程的文本文件。它包含一系列指令，用于指定构建镜像所需的操作和配置。
+
+以下是Dockerfile的一般语法结构：
+
+```
+# 注释
+
+# 基础镜像
+FROM <base_image>
+
+# 作者信息
+LABEL maintainer="<author_name>"
+
+# 设置工作目录
+WORKDIR <working_directory>
+
+# 复制文件或目录到镜像中
+COPY <source> <destination>
+
+# 运行命令
+RUN <command>
+
+# 暴露容器的端口
+EXPOSE <port>
+
+# 定义环境变量
+ENV <key>=<value>
+
+# 设置容器启动时执行的命令
+CMD <command>
+
+# 构建镜像时执行的命令
+ENTRYPOINT <command>
+```
+
+这只是Dockerfile的一些常用指令，还有其他更多的指令可以用于构建镜像。您可以根据自己的需求和项目的要求来编写Dockerfile。
+
+请注意，每个指令都会创建一个新的镜像层，并且指令的顺序很重要，因为每个指令都会基于前一个指令的结果进行操作。
+
+编写好Dockerfile后，可以使用`docker build`命令来构建镜像，例如：
+```
+docker build -t <image_name> .
+```
+其中，`<image_name>`是您要为镜像指定的名称，`.`表示Dockerfile所在的当前目录。
+
+
+
+
+
+CMD：
+1. 如果 Dockerfile 中定义了多个 CMD，只有最后一个会被执行。
+2. CMD 可以被 docker run 命令行中指定的参数覆盖。
+3. CMD 有两种格式：CMD ["可执行文件", "参数1", "参数2"] 和 CMD ["参数1", "参数2"]。第一种格式在 ENTRYPOINT 指令指定的可执行文件之后执行，第二种格式需要 ENTRYPOINT 支持。
+
+ENTRYPOINT：
+1. ENTRYPOINT 的目的是让容器表现得像一个可执行程序。用户可以通过 docker run 命令行参数传递给 ENTRYPOINT 指令。
+2. 如果 Dockerfile 中定义了多个 ENTRYPOINT，只有最后一个会被执行。
+3. ENTRYPOINT 有两种格式：ENTRYPOINT ["可执行文件", "参数1", "参数2"] 和 ENTRYPOINT 命令 参数。第一种格式不会被 CMD 或 docker run 命令行参数覆盖，第二种格式可以被 CMD 或 docker run 命令行参数覆盖。
+
+总的来说，CMD 更适合用来为将要执行的程序提供默认的参数，而 ENTRYPOINT 更适合用来设置程序的运行方式。

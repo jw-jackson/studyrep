@@ -6,7 +6,10 @@ ifconfig <interface>
 
 sudo ifconfig <interface> down/up
 
+修改 ip
 sudo ifconfig <interface> xxx.xxx.xxx.xxx netmask xxx.xxx.xxx.xxx
+
+修改 mac
 sudo ifconfig <interface> hw ether xx:xx:xx::...
 
 

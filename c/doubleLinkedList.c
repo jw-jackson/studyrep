@@ -59,6 +59,17 @@ void printlist(head the_head)
     }
 }
 
+void xigou(head the_head){
+    list_node * ptr;
+    ptr = the_head -> prev;
+    while ( ptr != the_head )
+    {
+        list_node * temp = ptr;
+        ptr = ptr -> prev;
+        free(temp);
+    }
+    free(the_head);
+}
 int main(int argc, char *argv[])
 {
     head myhead;
@@ -73,5 +84,6 @@ int main(int argc, char *argv[])
     insertattail(myhead, 8);
     insertattail(myhead, 9);
     printlist(myhead);
+    xigou(myhead);
     return 0;
 }
